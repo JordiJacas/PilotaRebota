@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity{
     ImageView img;
 
     // Control de la velocitat
-    float velocitatX = 2.0f;
-    float velocitatY = 2.0f;
+    float velocitatX = 30.0f;
+    float velocitatY = 30.0f;
     float iniciX, iniciY;
 
     // Mides per fer càlculs
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity{
         MyTimerTask myTask = new MyTimerTask();
         Timer myTimer = new Timer();
 
-        myTimer.schedule(myTask, 0, 20);
+        myTimer.schedule(myTask, 0, 100);
 
         // Mida de l'statusBar per calcular l'alçada de l'aplicació
         statusBar = getResources().getDimensionPixelSize(getResources().getIdentifier("status_bar_height", "dimen", "android"));
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity{
                 velocitatY = velocitatY*-1;
             }
 
-            if((img.getY() - img.getHeight()) > height){
+            if((img.getY() + img.getHeight()) > height){
                 velocitatY = velocitatY*-1;
             }
 
