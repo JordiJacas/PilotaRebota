@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity{
         width = display.widthPixels;
         height = display.heightPixels;
 
+        // Mida de l'statusBar per calcular l'alçada de l'aplicació
+        statusBar = getResources().getDimensionPixelSize(getResources().getIdentifier("status_bar_height", "dimen", "android"));
+
         for (int x = 0; x < 2;x++){
             Random random = new Random();
             ImageView img = new ImageView(getApplicationContext());
@@ -55,15 +58,14 @@ public class MainActivity extends AppCompatActivity{
             int posY = random.nextInt((height/2) - 500 + 1) + 500;
             int posX = random.nextInt((width/2) - 500 + 1) + 500;
 
-            //Log.v("pos", Integer.toString(n));
-
+            //Log.v("pos", Integer.toString(statusBar));
 
             img.setX(posX);
             img.setY(posY);
 
             rl.addView(img);
             
-            bolas.add(new Bola(posX, posY, velocitatX, velocitatY, img, height, width));
+            bolas.add(new Bola(posX, posY, velocitatX, velocitatY, img, height, width, statusBar));
         }
 
 
@@ -77,8 +79,7 @@ public class MainActivity extends AppCompatActivity{
 
         myTimer.schedule(myTask, 0, 100);
 
-        // Mida de l'statusBar per calcular l'alçada de l'aplicació
-        statusBar = getResources().getDimensionPixelSize(getResources().getIdentifier("status_bar_height", "dimen", "android"));
+
 
     }
 

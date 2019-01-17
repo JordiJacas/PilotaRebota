@@ -11,8 +11,9 @@ public class Bola {
     private ImageView img;
     private int height;
     private int width;
+    private int statusBar;
 
-    public Bola(int x, int y, float velocitatX, float velocitatY, ImageView img, int height, int width) {
+    public Bola(int x, int y, float velocitatX, float velocitatY, ImageView img, int height, int width, int statusBar) {
         this.x = x;
         this.y = y;
         this.velocitatX = velocitatX;
@@ -20,6 +21,7 @@ public class Bola {
         this.img = img;
         this.height = height;
         this.width = width;
+        this.statusBar = statusBar;
     }
 
     public int getX() {
@@ -62,6 +64,30 @@ public class Bola {
         this.img = img;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getStatusBar() {
+        return statusBar;
+    }
+
+    public void setStatusBar(int statusBar) {
+        this.statusBar = statusBar;
+    }
+
     public void move(){
         if(img.getX() < 0){
             velocitatX = velocitatX*-1;
@@ -75,7 +101,7 @@ public class Bola {
             velocitatY = velocitatY*-1;
         }
 
-        if((img.getY() + img.getHeight()) > height){
+        if((img.getY() + img.getHeight() + statusBar) > height){
             velocitatY = velocitatY*-1;
         }
 
